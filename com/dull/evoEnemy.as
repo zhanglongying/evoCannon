@@ -187,8 +187,10 @@ package com.dull
 			
 				if(steer.Length()>10/_level.pixel_per_meter){
 				
-					steer.Normalize() * _maxForce;				
+					steer.Normalize() * _maxForce;		
 				}
+				steer.Multiply(_phys_body.GetMass());
+
 				_phys_body.ApplyForce(steer, _phys_body.GetWorldCenter());
 			}
 			

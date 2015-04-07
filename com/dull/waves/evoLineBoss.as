@@ -53,6 +53,7 @@ package com.dull.waves
 			_view.graphics.moveTo(100, 400);
 
 			_view.graphics.lineTo(700, 400);
+
 			_path_point_array.push(new b2Vec2(100 / _level.pixel_per_meter, 400 / _level.pixel_per_meter));
 
 			_path_point_array.push(new b2Vec2(700 / _level.pixel_per_meter, 400 / _level.pixel_per_meter));
@@ -67,7 +68,7 @@ package com.dull.waves
 			_boss_hp_bar.y = 750;
 			_view.addChild(_boss_hp_bar);
 			_boss_hp_bar.gotoAndStop(100);
-			emitterEnemy(0, 0, 1);
+			emitterEnemy(700, 100, 1);
 			
 		}
 		public override function update(deltaTime:int){
@@ -126,6 +127,7 @@ package com.dull.waves
 		
 			enemy.getView().scaleX = 5;
 			enemy.getView().scaleY = 5;
+
 			enemy._hp = 10000;
 			_boss = enemy;
 		}

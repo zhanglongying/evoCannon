@@ -66,7 +66,7 @@ package com.dull.levels
 			
 						
 			_waves_list = new Array();
-			_waves_list.push(new evoLineWave (this))
+			//_waves_list.push(new evoLineWave (this))
 
 			//_cur_wave =_waves_list[0] ;
 			//_cur_wave.init();
