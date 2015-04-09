@@ -42,7 +42,6 @@ package com.dull.waves
 		public override function init(){
 			
 			
-			var delta_angle:Number = Math.PI / 6;
 			
 			var theta = 0;
 			var r = 20;

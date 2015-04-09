@@ -41,7 +41,7 @@ package com.dull
 			var dx:Number = _target.x - this.x 
 			var dy:Number = _target.y - this.y;
 			var dis= Math.sqrt(dx*dx+dy*dy);
-			if (dis<1&&_status=='normal'){
+			if (dis<2&&_status=='normal'){
 				
 				_velocity.x = 0;
 				_velocity.y = 0;
