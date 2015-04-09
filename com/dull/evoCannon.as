@@ -52,8 +52,24 @@
 			_firePos.visible = false;
 
 			
-			_epbar = new  CannoEpBar();
-			_level.addView(_epbar);
+			_epbar = new  cannon_ep_view();
+			_epbar.x = -10;
+			_epbar.y = 10;
+			//_level.addView(_epbar);
+			this.addChild(_epbar);
+			
+			_wait_time_bar = new cannon_view_time();
+			_wait_time_bar.x = -10;
+			_wait_time_bar.y = 0;
+			this.addChild(_wait_time_bar);
+			_wait_time_bar.stop();
+			
+			_fire_harm_baar = new canno_fire_harm();
+			_fire_harm_baar.x = -10;
+			_fire_harm_baar.y = -20;
+			_fire_harm_baar.stop();
+			this.addChild(_fire_harm_baar);
+
 			
 			_pos_grid_num = posGridNum;
 		
@@ -73,7 +89,7 @@
 			_canno_name+= nameNum;
 			_name_txt.text = _canno_name;
 			_name_txt.selectable = false;
-			_level.addView(_name_txt);
+			//_level.addView(_name_txt);
 
 			
 			
@@ -90,6 +106,8 @@
 			
 			//trace("the waiting time +", _waiting_time);
 			_waiting_time+= 0.1;
+			
+			_wait_time_bar.gotoAndStop(int(11 * _waiting_time / _max_waiting_time));
 		}
 		
 		public function epTimerHandle(e:Event)
@@ -132,12 +150,14 @@
 			
 		
 			//更新ep bar
-			_epbar.x = this.x;
-			_epbar.y = this.y+20;		
-			_epbar.gotoAndStop(_ep);
+		
+			_epbar.gotoAndStop( int(_ep/10));
 			
 			_name_txt.x = this.x;
-			_name_txt.y = this.y+20;
+			_name_txt.y = this.y + 20;
+			
+			
+			_fire_harm_baar.gotoAndStop(_main_fire_gene._gene_level > 5?5:_main_fire_gene._gene_level);
 			
 			
 			//ep Check
@@ -239,6 +259,11 @@
 			if(_eye_gene!=null){
 				
 				_eye_gene.finding();
+				if(_eye_bar_view==null){
+					
+					_eye_bar_view = new cannon_eye_view();
+					this.addChild(_eye_bar_view);
+				}
 				
 			}
 			else{
@@ -424,6 +449,13 @@
 		public var _firePos:DisplayObject;
 		public var _epbar:MovieClip;
 		
+		public var _wait_time_bar:MovieClip;
+		
+		public var _fire_harm_baar:MovieClip;
+		
+		public var _eye_bar_view:MovieClip;
+		
+		
 		public var _ep = 50;
 		
 		public var _frameCounter = 0;
@@ -459,7 +491,7 @@
 		
 		public var _waiting_time:Number = 0;
 		
-		public var _max_waiting_time:Number = 0.5; //以秒为单位
+		public var _max_waiting_time:Number = 2; //以秒为单位
 		
 		
 		public var _ep_timer:Timer = new Timer(100, 0);
@@ -481,7 +513,7 @@
 		
 		public var _name_txt:TextField = new TextField();
 		
-		public var _canno_bullet_harm = 25;
+		public var _canno_bullet_harm = 50;
 
 		
 	}

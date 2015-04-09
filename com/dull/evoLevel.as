@@ -94,6 +94,13 @@
 			addView(_action_bar);
 			
 			addView(_txt);
+			
+			_ap_not_enough_bar = new ap_not_enough();
+			_ap_not_enough_bar.x = 400;
+			_ap_not_enough_bar.y = 300;
+			_ap_not_enough_bar.stop();
+			_ap_not_enough_bar.visible = false;
+			addView(_ap_not_enough_bar);
 			_txt.x = 600;
 			_txt.y = 50;
 			_txt.textColor = 0xff0000;
@@ -174,6 +181,12 @@
 				
 					_action_power -= 25;
 					pause();
+				}
+				else{
+					
+					_ap_not_enough_bar.play();
+					_ap_not_enough_bar.visible = true;
+					
 				}
 
 			}
@@ -496,8 +509,7 @@
 					
 					//todo 清除死亡的cannon
 					delView(liveCannons[m]);
-					delView(liveCannons[m]._epbar);
-					delView(liveCannons[m]._name_txt)
+					//delView(liveCannons[m]._epbar);
 					//m_world.DestroyBody(liveCannons[m].getPhysBody());
 					//最后移除，不然会造成bug
 					liveCannons.splice(liveCannons.indexOf(liveCannons[m]), 1);				
@@ -954,6 +966,7 @@
 		public var _gameOverView:MovieClip;
 		
 		public var _gameWinView:MovieClip;
+		public var _ap_not_enough_bar:MovieClip;
 
 		
 	}
