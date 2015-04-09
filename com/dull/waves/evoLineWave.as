@@ -55,9 +55,9 @@ package com.dull.waves
 
 			_path_point_array.push(new b2Vec2(700 / _level.pixel_per_meter, 400 / _level.pixel_per_meter));
 	
-			_path_point_array.reverse();
 			
-			
+			_path_point_array=_path_point_array.reverse();
+
 			emitterEnemy(700, 10, 50);
 			
 		}

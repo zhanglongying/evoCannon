@@ -491,7 +491,7 @@
 		
 		public var _waiting_time:Number = 0;
 		
-		public var _max_waiting_time:Number = 2; //以秒为单位
+		public var _max_waiting_time:Number = 1; //以秒为单位
 		
 		
 		public var _ep_timer:Timer = new Timer(100, 0);

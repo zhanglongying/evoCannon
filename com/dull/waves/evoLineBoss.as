@@ -83,6 +83,12 @@ package com.dull.waves
 					
 					_level.gameWin();
 				}
+				var dx = _boss.x - _path_point_array[_path_point_array.length - 1].x;
+				var dy = _boss.y - _path_point_array[_path_point_array.length - 1].y;
+				
+				if(Math.sqrt(dx*dx+dy*dy)<1){
+					_path_point_array=_path_point_array.reverse();
+				}
 			}
 			
 			

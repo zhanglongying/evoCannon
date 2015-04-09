@@ -19,7 +19,7 @@ package com.dull.waves
 		{
 			_wave_enemies_num_max = 50;
 
-			emitterEnemy(400, 400, 50);
+			emitterEnemy(400, 400, 100);
 		}
 		
 			
